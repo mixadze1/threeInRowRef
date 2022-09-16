@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MovePieces : MonoBehaviour
 {
+    private float _pixelsAway = 32;
+
     public static MovePieces instance;
     Match3 game;
 
@@ -31,13 +33,19 @@ public class MovePieces : MonoBehaviour
 
             newIndex = Point.clone(moving.index);
             Point add = Point.zero;
-            if (dir.magnitude > 32) //If our mouse is 32 pixels away from the starting point of the mouse
+            if (dir.magnitude > _pixelsAway) //If our mouse is 32 pixels away from the starting point of the mouse
             {
                 //make add either (1, 0) | (-1, 0) | (0, 1) | (0, -1) depending on the direction of the mouse point
                 if (aDir.x > aDir.y)
+                {
                     add = (new Point((nDir.x > 0) ? 1 : -1, 0));
+                }
+                  
                 else if(aDir.y > aDir.x)
+                {
                     add = (new Point(0, (nDir.y > 0) ? -1 : 1));
+                }
+                    
             }
             newIndex.add(add);
 

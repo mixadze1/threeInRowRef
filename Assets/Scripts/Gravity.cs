@@ -39,7 +39,6 @@ public class Gravity : MonoBehaviour
     {
         for (int x = 0; x < _width; x++)
         {
-            Debug.Log("tut");
             for (int y = (_height - 1); y >= 0; y--) //Start at the bottom and grab the next
             {
                 Point p = new Point(x, y);
